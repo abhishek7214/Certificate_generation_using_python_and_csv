@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Status{% endblock title %}
+{% block homecolor %}text-white{% endblock homecolor %}
+{% block dashcolor %}text-white{% endblock dashcolor %}
+{% block certicolor %}text-black{% endblock certicolor %}
+{% block body %}
+<div class="container">
+<h3> Certificate Generation Report for {{event_type}} of {{event_name}}</h3>
+<small>on : {{event_date}}</small>
+<br />
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th scope="col">#</th>
+			<th scope="col">Name</th>
+			<th scope="col">Email</th>
+			<th scope="col">Status</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for item in participat_details %}
+		<tr>
+			<th scope="row">{{forloop.counter}}</th>
+			<td>{{item.name}}</td>
+			<td>{{item.email}}</td>
+			{% if item.status %}
+			<td style="color:green">Sent</td>
+			{% else %}
+			<td style="color: red">Unsend</td>
+			{% endif %}
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+</div>
+{% endblock body %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Dashboard{% endblock title %}
+{% block homecolor %}text-white{% endblock homecolor %}
+{% block dashcolor %}text-black{% endblock dashcolor %}
+{% block certicolor %}text-white{% endblock certicolor %}
+{% block body %}
+<div class="container">
+    <div class="row">
+        {% for event in events %}
+        <div class="col-md mb-2">
+            <div class="card my-6" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">{{event.certificate_name}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{event.certificate_type}}</h6>
+                <p class="card-text">{{event.start_date}}</p>
+                <a href="/status/{{event.id}}/{{event.slug}}" class="card-link btn btn-sm btn-primary">View Status</a>
+                <!-- <a href="#" class="card-link btn btn-sm btn-danger float-right">Delete</a> -->
+                <!-- <a href="#" class="card-link">Another link</a> -->
+              </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock body %}

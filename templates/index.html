@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+{% block homecolor %}text-black{% endblock homecolor %}
+{% block dashcolor %}text-white{% endblock dashcolor %}
+{% block certicolor %}text-white{% endblock certicolor %}
+{% block body %}
+<div class="container">
+    <img src={%static "img/1.jpg" %} class="img-fluid" alt="banner">
+    <p class="text-center fs-2 fw-bold" style="color:#FFC312;">Welcome {{request.user}}</p>
+</div>
+
+{% endblock body %}
